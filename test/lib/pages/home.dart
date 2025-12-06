@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:test/models/category_model.dart';
 
+// ignore: must_be_immutable
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  final List<CategoryModel> categories = [];
+
+  // ignore: unused_element
+  void _getCategories() {
+    CategoryModel categoryModel = CategoryModel(
+      name: '',
+      iconPath: '',
+      boxColor: Colors.white,
+    );
+    categories.addAll(categoryModel.getcategories());
+  }
 
   @override
   Widget build(BuildContext context) {
