@@ -4,7 +4,7 @@ import 'package:test/models/category_model.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
 
   final List<CategoryModel> categories = [];
 
