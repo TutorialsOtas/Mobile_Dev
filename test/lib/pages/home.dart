@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
       iconPath: '',
       boxColor: Colors.white,
     );
-    categories.addAll(categoryModel.getcategories());
+    categories.addAll(CategoryModel.getcategories());
   }
 
   @override

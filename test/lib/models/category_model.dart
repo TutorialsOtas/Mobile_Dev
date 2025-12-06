@@ -13,7 +13,7 @@ class CategoryModel {
     required this.boxColor,
   });
 
-  List<CategoryModel> getcategories() {
+  static List<CategoryModel> getcategories() {
     List<CategoryModel> categories = [];
     CategoryModel categoryModel;
 
