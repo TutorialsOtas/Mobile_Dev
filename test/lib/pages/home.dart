@@ -2,23 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test/models/category_model.dart';
 
-// ignore: must_be_immutable
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final List<CategoryModel> categories = [];
 
-  // ignore: unused_element
-  void _getCategories() {
-    CategoryModel categoryModel = CategoryModel(
-      name: '',
-      iconPath: '',
-      boxColor: Colors.white,
-    );
+  @override
+  void initState() {
+    super.initState();
     categories.addAll(CategoryModel.getcategories());
   }
 
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -91,6 +90,7 @@ class HomePage extends StatelessWidget {
                 color: Colors.grey[200],
                 boxShadow: [
                   BoxShadow(
+                    // ignore: deprecated_member_use
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 2,
                     blurRadius: 5,
@@ -131,7 +131,7 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Container(
-              height: 80,
+              height: 120,
               width: double.infinity,
               margin: EdgeInsets.all(8),
               alignment: Alignment.center,
@@ -139,7 +139,21 @@ class HomePage extends StatelessWidget {
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: ListView.builder(
+              child: ListView.separated(
+                ItemCount: categories.length,
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.only(left: 16, right: 16),
+                separatorBuilder: (context, index) => SizedBox(width: 25),
+                itemBuilder:(context, index){
+                  return Container(
+                    height: 60,
+                    width: 60,
+                    decoration:BoxDecoration(
+                      color: categories[index].boxColor.withOpacity(0.5),
+                      //borderRadius: BorderRadius.circular(12),
+                    ),
+                  );
+                }
                 scrollDirection: Axis.horizontal,
                 itemCount: 6,
                 itemBuilder: (context, index) {
