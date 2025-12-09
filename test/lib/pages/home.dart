@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
           prefixIcon: const Padding(
             padding: EdgeInsets.all(12),
             // FIX: Added 'const' to Icon, as the icon itself is static.
-            child: const Icon(Icons.search, color: Colors.grey),
+            child: Icon(Icons.search, color: Colors.grey),
           ),
           // Filter Icon and Divider
           suffixIcon: SizedBox(
@@ -158,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                 const Padding(
                   padding: EdgeInsets.all(12),
                   // FIX: Added 'const' to Icon.
-                  child: const Icon(Icons.filter_list, color: Colors.grey),
+                  child: Icon(Icons.filter_list, color: Colors.grey),
                 ),
               ],
             ),
