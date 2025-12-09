@@ -1,3 +1,5 @@
+// lib/main.dart
+
 import 'package:flutter/material.dart';
 import 'package:test/pages/home.dart';
 
@@ -6,15 +8,17 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key}); // FIX: Uses super.key
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'Montserrat'),
-      home: HomePage(),
+      theme: ThemeData(
+        fontFamily: 'Montserrat',
+        scaffoldBackgroundColor: Colors.white,
+      ),
+      home: const HomePage(),
     );
   }
 }
